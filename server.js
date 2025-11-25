@@ -2,10 +2,12 @@ const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
 const PORT = 2121
+//a way to not push your API string or secrets to GH
 require('dotenv').config()
 
 //Create the variables
 let db,
+//this string is the string that MongoAtlas gives to connect to the DB
     dbConnectionStr = process.env.DB_STRING,
     dbName = 'todo'
 
@@ -114,7 +116,7 @@ app.delete('/deleteItem', (request, response) => {
 
 })
 
-//use the Port of the environment we are using or use the port shown in the code
+//use the Port of the environment we are using or use the port shown in the code3
 app.listen(process.env.PORT || PORT, ()=>{
     console.log(`Server running on port ${PORT}`)
 })
