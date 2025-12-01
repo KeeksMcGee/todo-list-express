@@ -29,7 +29,7 @@ app.use(express.json())
 
 //the default response/web page
 app.get('/',async (request, response)=>{
-    //take all to do items and put them into an array
+    //find all of the 'todo' documents and place them into an array
     const todoItems = await db.collection('todos').find().toArray()
     //the items left are items that are marked as 'completed: false'
     const itemsLeft = await db.collection('todos').countDocuments({completed: false})
